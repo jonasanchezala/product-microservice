@@ -1,4 +1,4 @@
 #!/bin/bash
-docker stop creditcard
-docker rm creditcard
-docker rmi creditcard:1.0
+docker stop product
+docker rm product
+docker rmi product:1.0
