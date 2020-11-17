@@ -55,14 +55,19 @@ public class ProductService {
             throw new NullPointerException("The product to update does not exist");
         }
 
-        productToUpdate.setShow(product.getShow());
+        productToUpdate.setShowName(product.getShowName());
+        productToUpdate.setPrice(product.getPrice());
         productToUpdate.setShowDate(product.getShowDate());
-        productToUpdate.setShowCity(product.getShowCity());
+        productToUpdate.setOriginCity(product.getOriginCity());
+        productToUpdate.setDestinationCity(product.getDestinationCity());
         productToUpdate.setArrivalDate(product.getArrivalDate());
         productToUpdate.setDepartureDate(product.getDepartureDate());
+        productToUpdate.setCategory(product.getCategory());
+
         productToUpdate.setTransportType(product.getTransportType());
-        productToUpdate.setShowType(product.getShowType());
+        productToUpdate.setTransportSupplier(product.getTransportSupplier());
         productToUpdate.setLodgingType(product.getLodgingType());
+        productToUpdate.setLodgingSupplier(product.getLodgingSupplier());
 
         return productRepository.save(productToUpdate);
     }

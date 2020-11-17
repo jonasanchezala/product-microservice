@@ -10,14 +10,19 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private String show;
+    private String showName;
+    private Double price;
     private Date showDate;
-    private String showCity;
+    private String originCity;
+    private String destinationCity;
+    private String category;
     private Date arrivalDate;
     private Date departureDate;
+
     private String transportType;
-    private String showType;
+    private String transportSupplier;
     private String lodgingType;
+    private String lodgingSupplier;
 
     public int getId() {
         return id;
@@ -27,12 +32,20 @@ public class Product {
         this.id = id;
     }
 
-    public String getShow() {
-        return show;
+    public String getShowName() {
+        return showName;
     }
 
-    public void setShow(String show) {
-        this.show = show;
+    public void setShowName(String showName) {
+        this.showName = showName;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
     public Date getShowDate() {
@@ -43,12 +56,28 @@ public class Product {
         this.showDate = showDate;
     }
 
-    public String getShowCity() {
-        return showCity;
+    public String getOriginCity() {
+        return originCity;
     }
 
-    public void setShowCity(String showCity) {
-        this.showCity = showCity;
+    public void setOriginCity(String originCity) {
+        this.originCity = originCity;
+    }
+
+    public String getDestinationCity() {
+        return destinationCity;
+    }
+
+    public void setDestinationCity(String destinationCity) {
+        this.destinationCity = destinationCity;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public Date getArrivalDate() {
@@ -75,12 +104,12 @@ public class Product {
         this.transportType = transportType;
     }
 
-    public String getShowType() {
-        return showType;
+    public String getTransportSupplier() {
+        return transportSupplier;
     }
 
-    public void setShowType(String showType) {
-        this.showType = showType;
+    public void setTransportSupplier(String transportSupplier) {
+        this.transportSupplier = transportSupplier;
     }
 
     public String getLodgingType() {
@@ -89,5 +118,13 @@ public class Product {
 
     public void setLodgingType(String lodgingType) {
         this.lodgingType = lodgingType;
+    }
+
+    public String getLodgingSupplier() {
+        return lodgingSupplier;
+    }
+
+    public void setLodgingSupplier(String lodgingSupplier) {
+        this.lodgingSupplier = lodgingSupplier;
     }
 }
