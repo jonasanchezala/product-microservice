@@ -4,6 +4,8 @@ import co.edu.javeriana.toures.product.models.Product;
 import co.edu.javeriana.toures.product.repositories.ProductRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -72,4 +74,13 @@ public class ProductService {
         return productRepository.save(productToUpdate);
     }
 
+    public List<Product> findAllById(Integer[] ids) {
+        if(ids == null || ids.length == 0){
+            throw new NullPointerException("The productIds are empty or null");
+        }
+
+        List<Product> products = new ArrayList<>();
+        productRepository.findAllById(Arrays.asList(ids)).forEach(products::add);
+        return products;
+    }
 }
