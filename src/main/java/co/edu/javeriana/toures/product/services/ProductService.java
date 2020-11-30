@@ -1,7 +1,9 @@
 package co.edu.javeriana.toures.product.services;
 
 import co.edu.javeriana.toures.product.models.Product;
+import co.edu.javeriana.toures.product.repositories.ProductJPARepository;
 import co.edu.javeriana.toures.product.repositories.ProductRepository;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,9 +13,11 @@ import java.util.Objects;
 public class ProductService {
 
     private final ProductRepository productRepository;
+    private final ProductJPARepository productJPARepository;
 
-    public ProductService(ProductRepository productRepository) {
+    public ProductService(ProductRepository productRepository, ProductJPARepository productJPARepository) {
         this.productRepository = productRepository;
+        this.productJPARepository = productJPARepository;
     }
 
     public Product createProduct(Product product){
@@ -26,6 +30,14 @@ public class ProductService {
 
     public List<Product> listProducts() {
         return (List<Product>) productRepository.findAll();
+    }
+
+    public List<Product> findByProductPage(String search, Pageable pageable) {
+        return (List<Product>) productJPARepository.findByProductPage(search, pageable);
+    }
+
+    public List<Product> findByProductCodigo(int search, Pageable pageable) {
+        return (List<Product>) productJPARepository.findByProductCodigo(search, pageable);
     }
 
     public Product findById(Integer id){

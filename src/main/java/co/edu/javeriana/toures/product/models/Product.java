@@ -24,6 +24,24 @@ public class Product {
     private String lodgingType;
     private String lodgingSupplier;
 
+    private String url;
+    private String des_prod;
+
+    public String getUrl() {
+        return url;
+    }
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getDes_prod() {
+        return des_prod;
+    }
+
+    public void setDes_prod(String des_prod) {
+        this.des_prod = des_prod;
+    }
+
     public int getId() {
         return id;
     }

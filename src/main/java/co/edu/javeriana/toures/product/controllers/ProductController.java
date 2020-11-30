@@ -2,6 +2,8 @@ package co.edu.javeriana.toures.product.controllers;
 
 import co.edu.javeriana.toures.product.models.Product;
 import co.edu.javeriana.toures.product.services.ProductService;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -22,6 +24,18 @@ public class ProductController {
     @GetMapping
     public List<Product> get() {
         return productService.listProducts();
+    }
+
+    @GetMapping("{search}/{page}/{cantReg}")
+    public List<Product> findByProductPage(@PathVariable String search,  @PathVariable int page, @PathVariable int cantReg) {
+        Pageable pageable = PageRequest.of(page, cantReg);
+        return productService.findByProductPage(search, pageable);
+    }
+
+    @GetMapping("{search}/{page}/{cantReg}/{numerico}")
+    public List<Product> findByProductCodigo(@PathVariable int search,  @PathVariable int page, @PathVariable int cantReg, @PathVariable int numerico) {
+        Pageable pageable = PageRequest.of(page, cantReg);
+        return productService.findByProductCodigo(search, pageable);
     }
 
     @PostMapping
