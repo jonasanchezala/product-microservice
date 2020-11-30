@@ -18,11 +18,11 @@ public class Product {
     private String category;
     private Date arrivalDate;
     private Date departureDate;
-
     private String transportType;
     private String transportSupplier;
     private String lodgingType;
     private String lodgingSupplier;
+    private String imageUrl;
 
     private String url;
     private String des_prod;
@@ -144,5 +144,13 @@ public class Product {
 
     public void setLodgingSupplier(String lodgingSupplier) {
         this.lodgingSupplier = lodgingSupplier;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

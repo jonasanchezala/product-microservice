@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Arrays;
 import java.util.List;
 
 @CrossOrigin
@@ -57,11 +58,29 @@ public class ProductController {
     }
 
     @GetMapping("{id}")
-    public Product get(@PathVariable Integer id ){
+    public Product get(@PathVariable Integer id){
 
         try {
 
             return productService.findById(id);
+
+        }catch (NullPointerException ex){
+
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, ex.getMessage(), ex);
+
+        }catch (Exception ex){
+
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage(), ex);
+
+        }
+    }
+
+    @GetMapping("findAllByIds/{ids}")
+    public List<Product> getByIds(@PathVariable Integer[] ids){
+
+        try {
+
+            return productService.findAllById(ids);
 
         }catch (NullPointerException ex){
 
