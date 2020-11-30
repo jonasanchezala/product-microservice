@@ -22,7 +22,7 @@ public class Product {
     private String transportSupplier;
     private String lodgingType;
     private String lodgingSupplier;
-    private String imageUrl;
+
 
     private String url;
     private String des_prod;
@@ -146,11 +146,5 @@ public class Product {
         this.lodgingSupplier = lodgingSupplier;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
-    }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
 }
