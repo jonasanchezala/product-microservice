@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface ProductJPARepository extends JpaRepository<Product, Integer>  {
 
-    @Query("FROM Product WHERE showName like %:search% AND category like %:search%")
+    @Query("FROM Product WHERE showName like %:search% AND category like %:search% order by 1 asc")
     List<Product> findByProductPage(String search, Pageable pageable);
 
     @Query("FROM Product WHERE id = ?1")
