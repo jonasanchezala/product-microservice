@@ -22,8 +22,6 @@ public class Product {
     private String transportSupplier;
     private String lodgingType;
     private String lodgingSupplier;
-
-
     private String url;
     private String des_prod;
 
